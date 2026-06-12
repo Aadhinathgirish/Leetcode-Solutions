@@ -1,6 +1,6 @@
 import collections
 class Solution:
-    def maxSlidingWindow(self, nums, k: int) -> :
+    def maxSlidingWindow(self, nums, k: int):
         l=0
         r=0
         queue = collections.deque()
