@@ -1,0 +1,22 @@
+class Solution:
+    def orangesRotting(self, grid) -> int:
+        row = len(grid)
+        col = len(grid[0])
+        minutes = 0
+        while True:
+            newgrid = [i[:] for i in grid]
+            change = False
+            for i in range(row):
+                for j in range(col):
+                    if newgrid[i][j] == 1:
+                        if (i>0 and grid[i-1][j] == 2) or (j>0 and grid[i][j-1] == 2) or (i<row-1 and newgrid[i+1][j]==2) or (j<col-1 and grid[i][j+1]==2):
+                            newgrid[i][j] = 2
+                            change = True
+            if not change:
+                for i in newgrid:
+                    if 1 in i:
+                        return -1
+                return minutes
+            grid = newgrid
+            minutes+=1 
+        
